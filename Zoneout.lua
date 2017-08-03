@@ -38,7 +38,7 @@ end
 
 function Zoneout:updateGradInput(input, gradOutput)
    local grads = self.gmodule:backward({input, self.prevOutput}, gradOutput)
-   self.gradInput:resizeAs(grads[1]):copy(grads[1])
+   self.gradInput = grads[1]
    return self.gradInput
 end
 
